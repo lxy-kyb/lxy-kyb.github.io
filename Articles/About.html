@@ -60,7 +60,7 @@ hr{
 							<div class="comment-body boxed ">
 								<div class="comment-noxtext">
 								<h1 id="_1">关于本文</h1>
-<p>本博客是本人（Yan）开发的一个基于Markdown的博客系统，支持基本的Markdown语法及一些常用的扩展语法。本文将对本博客所支持的Markdown语法做介绍。</p>
+<p>本博客是本人开发的一个基于Markdown的博客系统，支持基本的Markdown语法及一些常用的扩展语法。本文将对本博客所支持的Markdown语法做介绍。</p>
 <h1 id="markdown">Markdown基本语法</h1>
 <p>Markdown基本语法参见：<br />
 <a href="https://daringfireball.net/projects/markdown/syntax">https://daringfireball.net/projects/markdown/syntax</a></p>
@@ -85,10 +85,6 @@ hr{
 <td align="left">摘要</td>
 </tr>
 <tr>
-<td align="left">author</td>
-<td align="left">作者</td>
-</tr>
-<tr>
 <td align="left">publish_date</td>
 <td align="left">文章发布日期</td>
 </tr>
@@ -100,54 +96,37 @@ hr{
 </table>
 <p><strong>注意：</strong>  </p>
 <ol>
-<li>如果<code>authors</code>、<code>tags</code>有多个时，请换行书写；</li>
-<li>meta信息之间不要有空行；</li>
-<li>全部meta结尾和正文之间至少保留一个空行；</li>
-<li>meta信息请使用小写，并使用英文冒号<code>:</code>；</li>
-<li>title如果为填写，则使用Markdown文件名作为标题；</li>
+<li>如果<code>tags</code>有多个时，请换行书写；</li>
+<li><code>meta</code>信息之间不要有空行；</li>
+<li>全部<code>meta</code>结尾和正文之间至少保留一个空行；</li>
+<li><code>meta</code>信息请使用小写，并使用英文冒号<code>:</code>；</li>
+<li><code>title</code>如果为填写，则使用<code>Markdown</code>文件名作为标题；</li>
 </ol>
 <p>例如，本文的Meta信息如下：</p>
-<div class="highlight"><pre><span></span>title: 简介
+<div class="highlight"><pre><span></span>title: 关于
 summary: 介绍本博客的基本功能
-authors: yancai
-publish_date: 2015-12-15
-tags: 简介
+publish_date: 2016-09-15
+tags: About
       Markdown
 </pre></div>
 
 
-<h1 id="table">table表格支持</h1>
-<h2 id="table_1">table表格支持</h2>
-<h3 id="table_2">table表格支持</h3>
-<h4 id="table_3">table表格支持</h4>
-<h5 id="table_4">table表格支持</h5>
-<p>本博客支持table语法，方便大家使用表格展示数据，基本语法如下：</p>
-<p>Markdown语法示例：  </p>
-<div class="highlight"><pre><span></span><span class="p">|</span> <span class="s s-Atom">默认列</span> <span class="p">|</span> <span class="s s-Atom">左对齐列</span> <span class="p">|</span> <span class="s s-Atom">右对齐列</span> <span class="p">|</span> <span class="s s-Atom">居中列</span> <span class="p">|</span>
-<span class="p">|:-</span><span class="s s-Atom">---</span><span class="p">|:-</span><span class="s s-Atom">---</span><span class="p">|</span><span class="s s-Atom">----:</span><span class="p">|:-</span><span class="s s-Atom">---:</span><span class="p">|</span>
-<span class="p">|</span> <span class="s s-Atom">早上好</span> <span class="p">|</span> <span class="s s-Atom">中午好</span> <span class="p">|</span> <span class="s s-Atom">下午好</span> <span class="p">|</span> <span class="s s-Atom">晚上好</span> <span class="p">|</span>
+<h2 id="_2">标题编写</h2>
+<div class="highlight"><pre><span></span># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
 </pre></div>
 
 
-<p>显示如下：  </p>
-<table>
-<thead>
-<tr>
-<th align="left">默认列</th>
-<th align="left">左对齐列</th>
-<th align="right">右对齐列</th>
-<th align="center">居中列</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">早上好</td>
-<td align="left">中午好</td>
-<td align="right">下午好</td>
-<td align="center">晚上好</td>
-</tr>
-</tbody>
-</table>
+<h2 id="_3">标题编写</h2>
+<div class="highlight"><pre><span></span># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+</pre></div>
 								</div>
 							</div>
 						</li>
