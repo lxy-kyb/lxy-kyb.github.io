@@ -14,7 +14,6 @@ def user():
 
 @app.route('/Articles/<page>')
 def Articles(page):
-    print page, app.static_url_path
     return send_from_directory('Articles', page)
 
 @app.route('/Pages/<current>')
