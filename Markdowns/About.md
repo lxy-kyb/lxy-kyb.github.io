@@ -45,22 +45,71 @@ META支持作者为Markdown文件添加自定义的一些信息，这些自定�
 	tags: About
 		  Markdown
 
-## 标题编写
-```Markdown
 # 一级标题
+	# 一级标题
 ## 二级标题
-### 三级标题
-#### 四级标题
+	## 二级标题
+### 三级标题	
+	### 三级标题
+#### 四级标题	
+	#### 四级标题
 ##### 五级标题
+	##### 五级标题
+
+* Word
+* Excel
+* Powerpoint
+* Outlook
+```Markdown
+* Word
+* Excel
+* Powerpoint
+* Outlook
+```	
+
+
+| 左对齐       |居中          |右对齐      |
+|:-------------|:------------:|-----------:|
+| title        | 文章标题     |2016-09-15  |
+| summary      | 摘要         |2016-09-15  |
+| publish_date | 文章发布日期 |2016-09-15  |
+| tags         | 标签         |2016-09-15  |
+```Markdown
+| 左对齐       |居中          |右对齐      |
+|:-------------|:------------:|-----------:|
+| title        | 文章标题     |2016-09-15  |
+| summary      | 摘要         |2016-09-15  |
+| publish_date | 文章发布日期 |2016-09-15  |
+| tags         | 标签         |2016-09-15  |
 ```
 
-## 标题编写
-```Markdown
-# 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
+***
+
+```python
+import os
+print 'x'
+if True:
+	print 'x'
 ```
 
+我的博客[https://lxy-kyb.github.io/](https://lxy-kyb.github.io/)
 
+```markdown
+我的博客[https://lxy-kyb.github.io/](https://lxy-kyb.github.io/)
+```
+
+> The overriding design goal for Markdown's formatting syntax is to make it a
+> as possible. The idea is that a
+> Markdown-formatted document should be
+> publishable as-is, as plain text, without
+> looking like it's been marked up with tags
+> or formatting instructions.
+
+```markdown
+> The overriding design goal for Markdown's formatting syntax is to make it a
+> as possible. The idea is that a
+> Markdown-formatted document should be
+> publishable as-is, as plain text, without
+> looking like it's been marked up with tags
+> or formatting instructions.
+```
