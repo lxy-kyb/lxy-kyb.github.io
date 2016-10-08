@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="static/style.css">
 <link rel="stylesheet" href="static/css/bootstrap.css">
 <link rel="stylesheet" href="static/css/default.css">
+<script type="text/javascript" src="static/jquery.min.js"></script>
 
 <style>
 hr{
@@ -19,11 +20,24 @@ hr{
 }
 </style>
 
-<script type="text/javascript" src="https://api.thinkpage.cn/v3/weather/now.json?location=beijing&ts=1475909047&ttl=6000&uid=U5218EB65C&sig=AkLn2ZpBqfa1UqwUtsd9j8aGNJs=&callback=showWeather">
-	function showWeather(data) {
-		document.getElementById("weather").value = data
-	}
-</<script>
+<script type="text/javascript">
+    $(document).ready(function() {		
+		$.ajax({
+             type: "get",
+             async: false,
+             url: "https://api.thinkpage.cn/v3/weather/now.json?location=beijing&ts=1475913159&uid=U5218EB65C&sig=6b3rpysWlgzplQ06Z/LXhQNzrjc=",
+             dataType: "jsonp",
+             jsonp: "callback",
+             jsonpCallback:"weather",
+             success: function(json){
+				$("p").html(JSON.stringify(json));
+             },
+             error: function(){
+                 alert('fail');
+             }
+         });
+    });
+</script>  
 
 </head>
 
@@ -51,7 +65,7 @@ hr{
 		<!--/ row -->	
 		
 		<div class="row" id="weather">
-			AAAAAAAAAAAAAAAAA
+			<p id="p"></p>
 		</div>
 		
 </div>
