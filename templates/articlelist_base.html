@@ -1,0 +1,69 @@
+﻿{% extends 'base.html' %}
+
+{% block headstyle%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+{% endblock %}
+
+{% block title %}
+文章列表
+{% endblock %}
+
+{% block rowcontent %}
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Simple Message Field -->
+				<div class="comment-list styled clearfix">
+					<ol>
+						{% if Content %}
+						{% for li in Content %}
+						<li class="comment ">
+							<div class="comment-body boxed">
+								<div class="comment-notext">
+									<div class="comment-author clearfix">
+										<a href="{{li['url']}}" class="link-author">{{li['title']}}</a>								
+									</div>
+									<div class="comment-entry">
+										{{li['summary']}}
+									</div>
+									<div class="comment-author clearfix">{{li['datetime']}}</div>
+									<hr style="margin-bottom:5px margin-top:5px" />
+									<div class="tagcloud">
+										{% for tag in li['tags'] %}
+										<a href="#"><span>{{tag}}</span></a>	
+										{% endfor %}
+									</div>
+								</div>								
+							</div>
+						</li>
+						{% endfor %}
+						{% endif %}
+						
+				</div>
+			</div>
+		</div>		
+		<div class="row">
+			<div class="col-sm-7 col-xs-7">
+				<!-- tf pagination -->
+				<div class="tf_pagination style3">
+					<div class="inner">						
+						<a class="page_prev" href="{{PP}}"><span>&lsaquo;</span></a>
+						{% if Sindex %}	
+						{% for i in Sindex %}
+						<a href="{{i['url']}}" class="page-numbers">{{i['tags']}}</a>
+						{% endfor %}
+						{% endif %}
+						<span class="page-numbers page_current">{{current}}</span>
+						{% if Eindex %}	
+						{% for i in Eindex %}
+						<a href="{{i['url']}}" class="page-numbers">{{i['tags']}}</a>
+						{% endfor %}
+						{% endif %}
+						<a class="page_next" href="{{NP}}"><span>&rsaquo;</span></a>
+					</div>
+				</div>
+				<!--/ tf pagination -->
+			</div>
+		</div>
+{% endblock %}

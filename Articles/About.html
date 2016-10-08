@@ -1,0 +1,172 @@
+﻿﻿<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="ThemeFuse">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>
+关于
+</title>
+
+<!-- main JS libs -->
+<script src="js/libs/modernizr.min.js"></script>
+<script src="js/libs/jquery-1.10.0.js"></script>
+<script src="js/libs/jquery-ui.min.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="../static/style.css">
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../static/css/default.css">
+
+
+
+
+<!-- scripts -->
+<script src="js/general.js"></script>
+
+<style>
+hr{
+	margin-bottom:5px;
+	margin-top:5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container container-wide">
+
+	<!-- content -->
+	<div class="content " role="main">
+		<!-- row -->
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Website Menu -->
+				<div id="topmenu">
+					<ul class="dropdown clearfix boxed">
+						<li class="menu-level-0"><a href="/"><i class="icon-menu icon-menu7"></i><span>首页</span></a> </li>
+						<li class="menu-level-0"><a href="/Pages/1.html"><i class="icon-menu icon-menu6"></i><span>文章</span></a> </li>
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu3"></i><span>标签</span></a> </li>		
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu4"></i><span>关于</span></a></li>
+					</ul>
+				</div>
+				<!--/ Website Menu -->
+			</div>
+		</div>
+		<!--/ row -->	
+		
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Simple Message Field -->
+				<div class="comment-list styled clearfix">
+					<ol>						
+						<li class = "comment">
+							<div class="comment-body boxed ">
+								<div class="comment-noxtext">
+								<h1 id="_1">关于本文</h1>
+<p>本博客是本人（Yan）开发的一个基于Markdown的博客系统，支持基本的Markdown语法及一些常用的扩展语法。本文将对本博客所支持的Markdown语法做介绍。</p>
+<h1 id="markdown">Markdown基本语法</h1>
+<p>Markdown基本语法参见：<br />
+<a href="https://daringfireball.net/projects/markdown/syntax">https://daringfireball.net/projects/markdown/syntax</a></p>
+<h1 id="markdown_1">扩展的Markdown特殊语法</h1>
+<p>本博客Markdown的生成基于Python的Markdown包，因此本博客支持的扩展语法也源于Python Markdown，参见：<a href="https://pythonhosted.org/Markdown/">Python Markdown</a></p>
+<h2 id="meta">META信息的编写方式</h2>
+<p>META支持作者为Markdown文件添加自定义的一些信息，这些自定义的信息将在页面右侧展示和查看是起作用，目前支持如下信息：</p>
+<table>
+<thead>
+<tr>
+<th align="left">关键字</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">title</td>
+<td align="left">文章标题</td>
+</tr>
+<tr>
+<td align="left">summary</td>
+<td align="left">摘要</td>
+</tr>
+<tr>
+<td align="left">author</td>
+<td align="left">作者</td>
+</tr>
+<tr>
+<td align="left">publish_date</td>
+<td align="left">文章发布日期</td>
+</tr>
+<tr>
+<td align="left">tags</td>
+<td align="left">标签</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong>  </p>
+<ol>
+<li>如果<code>authors</code>、<code>tags</code>有多个时，请换行书写；</li>
+<li>meta信息之间不要有空行；</li>
+<li>全部meta结尾和正文之间至少保留一个空行；</li>
+<li>meta信息请使用小写，并使用英文冒号<code>:</code>；</li>
+<li>title如果为填写，则使用Markdown文件名作为标题；</li>
+</ol>
+<p>例如，本文的Meta信息如下：</p>
+<div class="highlight"><pre><span></span>title: 简介
+summary: 介绍本博客的基本功能
+authors: yancai
+publish_date: 2015-12-15
+tags: 简介
+      Markdown
+</pre></div>
+
+
+<h1 id="table">table表格支持</h1>
+<h2 id="table_1">table表格支持</h2>
+<h3 id="table_2">table表格支持</h3>
+<h4 id="table_3">table表格支持</h4>
+<h5 id="table_4">table表格支持</h5>
+<p>本博客支持table语法，方便大家使用表格展示数据，基本语法如下：</p>
+<p>Markdown语法示例：  </p>
+<div class="highlight"><pre><span></span><span class="p">|</span> <span class="s s-Atom">默认列</span> <span class="p">|</span> <span class="s s-Atom">左对齐列</span> <span class="p">|</span> <span class="s s-Atom">右对齐列</span> <span class="p">|</span> <span class="s s-Atom">居中列</span> <span class="p">|</span>
+<span class="p">|:-</span><span class="s s-Atom">---</span><span class="p">|:-</span><span class="s s-Atom">---</span><span class="p">|</span><span class="s s-Atom">----:</span><span class="p">|:-</span><span class="s s-Atom">---:</span><span class="p">|</span>
+<span class="p">|</span> <span class="s s-Atom">早上好</span> <span class="p">|</span> <span class="s s-Atom">中午好</span> <span class="p">|</span> <span class="s s-Atom">下午好</span> <span class="p">|</span> <span class="s s-Atom">晚上好</span> <span class="p">|</span>
+</pre></div>
+
+
+<p>显示如下：  </p>
+<table>
+<thead>
+<tr>
+<th align="left">默认列</th>
+<th align="left">左对齐列</th>
+<th align="right">右对齐列</th>
+<th align="center">居中列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">早上好</td>
+<td align="left">中午好</td>
+<td align="right">下午好</td>
+<td align="center">晚上好</td>
+</tr>
+</tbody>
+</table>
+								</div>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	
+
+</div>
+<!--/ container -->
+
+</body>
+</html>
