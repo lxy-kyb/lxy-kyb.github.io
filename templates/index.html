@@ -19,6 +19,12 @@ hr{
 }
 </style>
 
+<script type="text/javascript" src="https://api.thinkpage.cn/v3/weather/now.json?location=beijing&ts=1475909047&ttl=6000&uid=U5218EB65C&sig=AkLn2ZpBqfa1UqwUtsd9j8aGNJs=&callback=showWeather">
+	function showWeather(data) {
+		document.getElementById("weather").value = data
+	}
+</<script>
+
 </head>
 
 <body>
@@ -44,7 +50,9 @@ hr{
 		</div>
 		<!--/ row -->	
 		
-		
+		<div class="row" id="weather">
+			AAAAAAAAAAAAAAAAA
+		</div>
 		
 </div>
 <!--/ container -->
