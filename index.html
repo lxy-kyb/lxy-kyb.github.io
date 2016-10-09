@@ -7,11 +7,198 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
 
+<script src="static/js/libs/modernizr.min.js"></script>
+<script src="static/js/libs/jquery-1.10.0.js"></script>
+<script src="static/js/libs/jquery-ui.min.js"></script>
+<script src="static/js/libs/bootstrap.min.js"></script>
+<script src="static/js/jquery.slider.bundle.js"></script>
+<script src="static/js/jquery.slider.js"></script>
+
+<link href="static/css/prettyPhoto.css" rel="stylesheet">
+<script src="static/js/jquery.prettyPhoto.js"></script>
+
 <!-- Style CSS -->
 <link rel="stylesheet" href="static/style.css">
 <link rel="stylesheet" href="static/css/bootstrap.css">
 <link rel="stylesheet" href="static/css/default.css">
 <script type="text/javascript" src="static/jquery.min.js"></script>
+
+<script src="js/jssor.slider-21.1.6.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	jssor_1_slider_init = function() {
+		
+		var jssor_1_SlideshowTransitions = [
+		  {$Duration:1200,x:0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,x:-0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,x:-0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,x:0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,y:0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,y:-0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,y:-0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,y:0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,x:0.3,$Cols:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,x:0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,y:0.3,$Rows:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,y:0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,y:0.3,$Cols:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,y:-0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,x:0.3,$Rows:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,x:-0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$SlideOut:true,$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,$Delay:20,$Clip:3,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,$Delay:20,$Clip:3,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,$Delay:20,$Clip:12,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+		  {$Duration:1200,$Delay:20,$Clip:12,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
+		];
+		
+		var jssor_1_options = {
+		  $AutoPlay: true,
+		  $SlideshowOptions: {
+			$Class: $JssorSlideshowRunner$,
+			$Transitions: jssor_1_SlideshowTransitions,
+			$TransitionsOrder: 1
+		  },
+		  $ArrowNavigatorOptions: {
+			$Class: $JssorArrowNavigator$
+		  },
+		  $ThumbnailNavigatorOptions: {
+			$Class: $JssorThumbnailNavigator$,
+			$Cols: 10,
+			$SpacingX: 8,
+			$SpacingY: 8,
+			$Align: 360
+		  }
+		};
+		
+		var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+		
+		//responsive code begin
+		//you can remove responsive code if you don't want the slider scales while window resizing
+		function ScaleSlider() {
+			var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+			if (refSize) {
+				refSize = Math.min(refSize, 800);
+				jssor_1_slider.$ScaleWidth(refSize);
+			}
+			else {
+				window.setTimeout(ScaleSlider, 30);
+			}
+		}
+		ScaleSlider();
+		$Jssor$.$AddEvent(window, "load", ScaleSlider);
+		$Jssor$.$AddEvent(window, "resize", ScaleSlider);
+		$Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+		//responsive code end
+	};
+	
+</script>
+<style>
+	/* jssor slider arrow navigator skin 05 css */
+	/*
+	.jssora05l                  (normal)
+	.jssora05r                  (normal)
+	.jssora05l:hover            (normal mouseover)
+	.jssora05r:hover            (normal mouseover)
+	.jssora05l.jssora05ldn      (mousedown)
+	.jssora05r.jssora05rdn      (mousedown)
+	*/
+	.jssora05l, .jssora05r {
+		display: block;
+		position: absolute;
+		/* size of arrow element */
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+		background: url('img/a17.png') no-repeat;
+		overflow: hidden;
+	}
+	.jssora05l { background-position: -10px -40px; }
+	.jssora05r { background-position: -70px -40px; }
+	.jssora05l:hover { background-position: -130px -40px; }
+	.jssora05r:hover { background-position: -190px -40px; }
+	.jssora05l.jssora05ldn { background-position: -250px -40px; }
+	.jssora05r.jssora05rdn { background-position: -310px -40px; }
+	
+	/* jssor slider thumbnail navigator skin 01 css */
+	/*
+	.jssort01 .p            (normal)
+	.jssort01 .p:hover      (normal mouseover)
+	.jssort01 .p.pav        (active)
+	.jssort01 .p.pdn        (mousedown)
+	*/
+	.jssort01 .p {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 72px;
+		height: 72px;
+	}
+	
+	.jssort01 .t {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+	
+	.jssort01 .w {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.jssort01 .c {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 68px;
+		height: 68px;
+		border: #000 2px solid;
+		box-sizing: content-box;
+		background: url('img/t01.png') -800px -800px no-repeat;
+		_background: none;
+	}
+	
+	.jssort01 .pav .c {
+		top: 2px;
+		_top: 0px;
+		left: 2px;
+		_left: 0px;
+		width: 68px;
+		height: 68px;
+		border: #000 0px solid;
+		_border: #fff 2px solid;
+		background-position: 50% 50%;
+	}
+	
+	.jssort01 .p:hover .c {
+		top: 0px;
+		left: 0px;
+		width: 70px;
+		height: 70px;
+		border: #fff 1px solid;
+		background-position: 50% 50%;
+	}
+	
+	.jssort01 .p.pdn .c {
+		background-position: 50% 50%;
+		width: 68px;
+		height: 68px;
+		border: #000 2px solid;
+	}
+	
+	* html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {
+		/* ie quirks mode adjust */
+		width /**/: 72px;
+		height /**/: 72px;
+	}
+	
+</style>
 
 <style>
 hr{
@@ -36,21 +223,39 @@ hr{
                  alert('fail');
              }
          });
+		
+		$('.weather-forecast li a').click(function() {
+        var day = $(this).attr('id');
+        $('.weather-forecast li a, .weather-item').removeClass('active');
+        $(this).addClass('active');
+        $('.weather-item.'+day).addClass('active');
+		});
+		
+		if($('a').is('[data-rel]') && screenRes > 600) {
+        $('a[data-rel]').each(function() {
+            $(this).attr('rel', $(this).data('rel'));
+        });
+        $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false});
+    };
     });
 </script>  
+
 
 </head>
 
 <body>
 
-<div class="container container-wide">
+<div class="container container-wide" >
+
 
 	<!-- content -->
 	<div class="content " role="main">
 		<!-- row -->
+		
 		<div class="row">
 			<div class="col-sm-12">
 				<!-- Website Menu -->
+				
 				<div id="topmenu">
 					<ul class="dropdown clearfix boxed">
 						<li class="menu-level-0"><a href="/"><i class="icon-menu icon-menu7"></i><span>首页</span></a> </li>
@@ -63,6 +268,129 @@ hr{
 			</div>
 		</div>
 		<!--/ row -->	
+		<div class = "row">
+			<div class="col-sm-4">
+                    <!-- Widget Weather -->					
+				<div class="widget-weather boxed boxed-turquoise">
+					<div class="weather-location clearfix">
+						<strong>北京</strong>
+					</div>
+					<div class="weather-highlighted">
+						<div class="weather-item clearfix su"><i class="icon-weather icon-weather-1"></i><div class="inner"><strong>31&deg;</strong><span>Mostly Sunny</span><span>31&deg;/18&deg;</span></div></div>
+						<div class="weather-item clearfix mo"><i class="icon-weather icon-weather-2"></i><div class="inner"><strong>20&deg;</strong><span>Rain</span><span>20&deg;/11&deg;</span></div></div>
+						<div class="weather-item active clearfix tu"><i class="icon-weather icon-weather-3"></i><div class="inner"><strong>27&deg;</strong><span>Partly Cloudy</span><span>27&deg;/15&deg;</span><span>2016-10-15</span></div></div>
+						<div class="weather-item clearfix we"><i class="icon-weather icon-weather-4"></i><div class="inner"><strong>23&deg;</strong><span>Cloudy</span><span>23&deg;/14&deg;</span></div></div>
+						<div class="weather-item clearfix th"><i class="icon-weather icon-weather-5"></i><div class="inner"><strong>26&deg;</strong><span>Mostly Sunny</span><span>26&deg;/16&deg;</span></div></div>
+						<div class="weather-item clearfix fr"><i class="icon-weather icon-weather-6"></i><div class="inner"><strong>32&deg;</strong><span>Sunny</span><span>32&deg;/19&deg;</span></div></div>
+						<div class="weather-item clearfix sa"><i class="icon-weather icon-weather-7"></i><div class="inner"><strong>24&deg;</strong><span>Light Rain</span><span>24&deg;/12&deg;</span></div></div>
+					</div>    	
+					<div class="weather-location clearfix">
+					</div>
+					<ul class="weather-forecast clearfix">
+						<li><a id="su"><strong>su</strong><span><i class="icon-weather icon-weather-1"></i></span><span>31&deg;</span></a></li>
+						<li><a id="mo"><strong>mo</strong><span><i class="icon-weather icon-weather-2"></i></span><span>20&deg;</span></a></li>
+						<li><a id="tu"><strong>tu</strong><span><i class="icon-weather icon-weather-3"></i></span><span>27&deg;</span></a></li>
+						<li><a id="we"><strong>we</strong><span><i class="icon-weather icon-weather-4"></i></span><span>23&deg;</span></a></li>
+						<li><a id="th"><strong>th</strong><span><i class="icon-weather icon-weather-1"></i></span><span>26&deg;</span></a></li>
+						<li><a id="fr"><strong>fr</strong><span><i class="icon-weather icon-weather-1"></i></span><span>32&deg;</span></a></li>
+						<li><a id="sa"><strong>sa</strong><span><i class="icon-weather icon-weather-5"></i></span><span>24&deg;</span></a></li>
+					</ul>
+				</div>
+                    <!--/ Widget Weather -->
+				
+			</div>
+			<div style="width:65%; float:left">
+				<div id="jssor_1" class="boxed" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 800px; height: 456px; overflow: hidden; visibility: hidden; background-color: #24262e;">
+					<!-- Loading Screen -->
+					<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+						<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+						<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+					</div>
+					<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 800px; height: 356px; overflow: hidden;">
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/01.jpg" />
+							<img data-u="thumb" src="img/thumb-01.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/02.jpg" />
+							<img data-u="thumb" src="img/thumb-02.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/03.jpg" />
+							<img data-u="thumb" src="img/thumb-03.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/04.jpg" />
+							<img data-u="thumb" src="img/thumb-04.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/05.jpg" />
+							<img data-u="thumb" src="img/thumb-05.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/06.jpg" />
+							<img data-u="thumb" src="img/thumb-06.jpg" />
+						</div>
+						<a data-u="any" href="http://www.jssor.com" style="display:none">Image Gallery</a>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/07.jpg" />
+							<img data-u="thumb" src="img/thumb-07.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/08.jpg" />
+							<img data-u="thumb" src="img/thumb-08.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/09.jpg" />
+							<img data-u="thumb" src="img/thumb-09.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/10.jpg" />
+							<img data-u="thumb" src="img/thumb-10.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/11.jpg" />
+							<img data-u="thumb" src="img/thumb-11.jpg" />
+						</div>
+						<div data-p="144.50" style="display: none;">
+							<img data-u="image" src="img/12.jpg" />
+							<img data-u="thumb" src="img/thumb-12.jpg" />
+						</div>
+					</div>
+					<!-- Thumbnail Navigator -->
+					<div data-u="thumbnavigator" class="jssort01" style="position:absolute;left:0px;bottom:0px;width:800px;height:100px;" data-autocenter="1">
+						<!-- Thumbnail Item Skin Begin -->
+						<div data-u="slides" style="cursor: default;">
+							<div data-u="prototype" class="p">
+								<div class="w">
+									<div data-u="thumbnailtemplate" class="t"></div>
+								</div>
+								<div class="c"></div>
+							</div>
+						</div>
+						<!-- Thumbnail Item Skin End -->
+					</div>
+					<!-- Arrow Navigator -->
+					<span data-u="arrowleft" class="jssora05l" style="top:158px;left:8px;width:40px;height:40px;"></span>
+					<span data-u="arrowright" class="jssora05r" style="top:158px;right:8px;width:40px;height:40px;"></span>
+				</div>
+			</div>
+		</div>
+		<!--/ row -->
+		
+		<div class="row">		
+			<div class="col-sm-6">
+				<!-- Grid Menu -->
+				<div class="grid-menu clearfix">
+					<div class="grid-box grid-box2"><a href="#" class="boxed boxed-red"><strong></strong></a></div>
+					<div class="grid-box grid-box3"><a href="#" class="boxed boxed-turquoise"><strong></strong></a></div>
+					<div class="grid-box grid-box-large"><a href="#" class="boxed boxed-yellow"><strong></strong></a></div>
+				</div>
+				<!--/ Grid Menu -->
+			</div>
+
+		</div>
+		<!--/ row -->
 		
 		<div class="row" id="weather">
 			<p id="p"></p>
@@ -70,6 +398,6 @@ hr{
 		
 </div>
 <!--/ container -->
-
+<script type="text/javascript">jssor_1_slider_init();</script>
 </body>
 </html>
