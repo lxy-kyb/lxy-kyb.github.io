@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="static/css/default.css">
 <script type="text/javascript" src="static/jquery.min.js"></script>
 
-<script src="js/jssor.slider-21.1.6.min.js" type="text/javascript"></script>
+<script src="static/js/jssor.slider-21.1.6.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 	jssor_1_slider_init = function() {
 		
@@ -110,7 +110,7 @@
 		width: 40px;
 		height: 40px;
 		cursor: pointer;
-		background: url('img/a17.png') no-repeat;
+		background: url('static/images/img/a17.png') no-repeat;
 		overflow: hidden;
 	}
 	.jssora05l { background-position: -10px -40px; }
@@ -160,7 +160,7 @@
 		height: 68px;
 		border: #000 2px solid;
 		box-sizing: content-box;
-		background: url('img/t01.png') -800px -800px no-repeat;
+		background: url('static/images/img/t01.png') -800px -800px no-repeat;
 		_background: none;
 	}
 	
@@ -212,11 +212,12 @@ hr{
 		$.ajax({
              type: "get",
              async: false,
-             url: "https://api.thinkpage.cn/v3/weather/now.json?location=beijing&ts=1475913159&uid=U5218EB65C&sig=6b3rpysWlgzplQ06Z/LXhQNzrjc=",
+             url: "https://api.thinkpage.cn/v3/weather/now.json?location=beijing&ts=1476086261&ttl=30&uid=U5218EB65C&sig=SYugy3Hx5m7cR2KcK9KfzMcHqtQ=",
              dataType: "jsonp",
              jsonp: "callback",
              jsonpCallback:"weather",
              success: function(json){
+				alert('fails');
 				$("p").html(JSON.stringify(json));
              },
              error: function(){
@@ -304,53 +305,53 @@ hr{
 					<!-- Loading Screen -->
 					<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 						<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-						<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+						<div style="position:absolute;display:block;background:url('static/images/img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
 					</div>
 					<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 800px; height: 356px; overflow: hidden;">
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/01.jpg" />
-							<img data-u="thumb" src="img/thumb-01.jpg" />
+							<img data-u="image" src="static/images/img/01.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-01.jpg" />
 						</div>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/02.jpg" />
-							<img data-u="thumb" src="img/thumb-02.jpg" />
+							<img data-u="image" src="static/images/img/02.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-02.jpg" />
 						</div>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/03.jpg" />
-							<img data-u="thumb" src="img/thumb-03.jpg" />
+							<img data-u="image" src="static/images/img/03.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-03.jpg" />
 						</div>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/04.jpg" />
-							<img data-u="thumb" src="img/thumb-04.jpg" />
+							<img data-u="image" src="static/images/img/04.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-04.jpg" />
 						</div>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/05.jpg" />
-							<img data-u="thumb" src="img/thumb-05.jpg" />
+							<img data-u="image" src="static/images/img/05.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-05.jpg" />
 						</div>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/06.jpg" />
-							<img data-u="thumb" src="img/thumb-06.jpg" />
+							<img data-u="image" src="static/images/img/06.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-06.jpg" />
 						</div>
 						<a data-u="any" href="http://www.jssor.com" style="display:none">Image Gallery</a>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/07.jpg" />
-							<img data-u="thumb" src="img/thumb-07.jpg" />
+							<img data-u="image" src="static/images/img/07.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-07.jpg" />
 						</div>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/08.jpg" />
-							<img data-u="thumb" src="img/thumb-08.jpg" />
+							<img data-u="image" src="static/images/img/08.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-08.jpg" />
 						</div>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/09.jpg" />
-							<img data-u="thumb" src="img/thumb-09.jpg" />
+							<img data-u="image" src="static/images/img/09.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-09.jpg" />
 						</div>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/10.jpg" />
-							<img data-u="thumb" src="img/thumb-10.jpg" />
+							<img data-u="image" src="static/images/img/10.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-10.jpg" />
 						</div>
 						<div data-p="144.50" style="display: none;">
-							<img data-u="image" src="img/11.jpg" />
-							<img data-u="thumb" src="img/thumb-11.jpg" />
+							<img data-u="image" src="static/images/img/11.jpg" />
+							<img data-u="thumb" src="static/images/img/thumb-11.jpg" />
 						</div>
 					</div>
 					<!-- Thumbnail Navigator -->
