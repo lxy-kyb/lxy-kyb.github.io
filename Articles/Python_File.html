@@ -70,19 +70,64 @@ hr{
 
 
 <h3 id="open">open的模式</h3>
-<ul>
-<li>w      以写方式打开，</li>
-<li>a      以追加模式打开 (从 EOF 开始, 必要时创建新文件)</li>
-<li>r+     以读写模式打开</li>
-<li>w+     以读写模式打开 (参见 w )</li>
-<li>a+     以读写模式打开 (参见 a )</li>
-<li>rb     以二进制读模式打开</li>
-<li>wb     以二进制写模式打开 (参见 w )</li>
-<li>ab     以二进制追加模式打开 (参见 a )</li>
-<li>rb+    以二进制读写模式打开 (参见 r+ )</li>
-<li>wb+    以二进制读写模式打开 (参见 w+ )</li>
-<li>ab+    以二进制读写模式打开 (参见 a+ )</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="left">模式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">r</td>
+<td align="left">打开一个文件为只读。文件指针置于该文件开头。这是默认模式</td>
+</tr>
+<tr>
+<td align="left">rb</td>
+<td align="left">打开一个文件只能以二进制格式读取。 文件指针置于文件的开头。这是默认模式</td>
+</tr>
+<tr>
+<td align="left">r+</td>
+<td align="left">打开用于读取和写入文件。文件指针将会在文件的开头</td>
+</tr>
+<tr>
+<td align="left">rb+</td>
+<td align="left">打开用于读取和写入二进制格式的文件。文件指针将会在文件的开头</td>
+</tr>
+<tr>
+<td align="left">w</td>
+<td align="left">打开一个文件只写。如果文件存在，覆盖该文件。如何该文件不存在，则创建用于写于的一个新文件</td>
+</tr>
+<tr>
+<td align="left">wb</td>
+<td align="left">打开一个文件只能以二进制格式写入。如果文件存在，覆盖该文件。如何该文件不存在，则创建用于写于的一个新文件</td>
+</tr>
+<tr>
+<td align="left">w+</td>
+<td align="left">打开用于写入和读取的文件。如果文件存在，覆盖该文件。如何该文件不存在，则创建用于写于的一个新文件</td>
+</tr>
+<tr>
+<td align="left">wb+</td>
+<td align="left">打开用于写入和读取的二进制格式的文件。覆盖该文件。如何该文件不存在，则创建用于写于的一个新文件</td>
+</tr>
+<tr>
+<td align="left">a</td>
+<td align="left">将打开追加文件，文件的指针指向文件的结尾。如果该文件不存在，则创建用于写于的一个新文件</td>
+</tr>
+<tr>
+<td align="left">ab</td>
+<td align="left">将打开追加二进制格式的文件，文件的指针指向文件的结尾。如果该文件不存在，则创建用于写于的一个新文件</td>
+</tr>
+<tr>
+<td align="left">a+</td>
+<td align="left">将打开追加和读取文件，文件的指针指向文件的结尾。如果该文件不存在，则创建用于写于的一个新文件</td>
+</tr>
+<tr>
+<td align="left">ab+</td>
+<td align="left">将打开追加和读取的二进制格式文件，文件的指针指向文件的结尾。如果该文件不存在，则创建用于写于的一个新文件</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_2">路径操作：判断获取和删除</h3>
 <p>1.得到当前工作目录，即当前Python脚本工作的路径</p>
 <div class="highlight"><pre><span></span><span class="n">currentpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
