@@ -101,8 +101,8 @@ os.chdir
 
 12.创建目录
 ```Python
-os.mkdir('test')          #创建单个目录
-os.mkdirs('Python/test')  #创建多级目录
+os.mkdir('test')                   #创建单个目录
+os.mkdirs('Python/test')           #创建多级目录
 ```
 
 ###文件操作
