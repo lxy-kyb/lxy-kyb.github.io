@@ -1,0 +1,200 @@
+﻿﻿<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="ThemeFuse">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>
+Python文件操作
+</title>
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="../static/style.css">
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../static/css/default.css">
+
+
+
+
+
+<style>
+hr{
+	margin-bottom:5px;
+	margin-top:5px;
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+<div class="container container-wide">
+
+	<!-- content -->
+	<div class="content " role="main">
+		<!-- row -->
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Website Menu -->
+				<div id="topmenu">
+					<ul class="dropdown clearfix boxed">
+						<li class="menu-level-0"><a href="/"><i class="icon-menu icon-menu7"></i><span>首页</span></a> </li>
+						<li class="menu-level-0"><a href="/Pages/1.html"><i class="icon-menu icon-menu6"></i><span>文章</span></a> </li>
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu3"></i><span>标签</span></a> </li>		
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu4"></i><span>关于</span></a></li>
+					</ul>
+				</div>
+				<!--/ Website Menu -->
+			</div>
+		</div>
+		<!--/ row -->	
+
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Simple Message Field -->
+				<div class="comment-list styled clearfix">
+					<ol>						
+						<li class = "comment">
+							<div class="comment-body boxed ">
+								<div class="comment-noxtext">
+								<h1 id="python">Python文件操作</h1>
+<h3 id="_1">创建文件</h3>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mknod</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span>        <span class="c1">#创建空文件</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>     <span class="c1">#直接打开一个文件，如果文件不存在则创建文件</span>
+</pre></div>
+
+
+<h3 id="open">open的模式</h3>
+<ul>
+<li>w      以写方式打开，</li>
+<li>a      以追加模式打开 (从 EOF 开始, 必要时创建新文件)</li>
+<li>r+     以读写模式打开</li>
+<li>w+     以读写模式打开 (参见 w )</li>
+<li>a+     以读写模式打开 (参见 a )</li>
+<li>rb     以二进制读模式打开</li>
+<li>wb     以二进制写模式打开 (参见 w )</li>
+<li>ab     以二进制追加模式打开 (参见 a )</li>
+<li>rb+    以二进制读写模式打开 (参见 r+ )</li>
+<li>wb+    以二进制读写模式打开 (参见 w+ )</li>
+<li>ab+    以二进制读写模式打开 (参见 a+ )</li>
+</ul>
+<h3 id="_2">路径操作：判断获取和删除</h3>
+<p>1.得到当前工作目录，即当前Python脚本工作的路径</p>
+<div class="highlight"><pre><span></span><span class="n">currentpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+
+
+<p>2.返回指定目录下的所有文件和目录名</p>
+<div class="highlight"><pre><span></span><span class="n">list_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;f:/Python&#39;</span><span class="p">)</span>             <span class="c1"># os.listdir(&#39;~/Python&#39;)</span>
+</pre></div>
+
+
+<p>3.判断给出的路径是否存在</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">path</span><span class="p">,</span> <span class="s1">&#39;exist&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">path</span><span class="p">,</span> <span class="s1">&#39;not exist&#39;</span>
+</pre></div>
+
+
+<p>4.判断给出的路径是否是一个文件</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">path</span><span class="p">,</span> <span class="s1">&#39;is a file&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">path</span><span class="p">,</span> <span class="s1">&#39;not a file&#39;</span>
+</pre></div>
+
+
+<p>5.判断给出的路径是否是一个目录</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">path</span><span class="p">,</span> <span class="s1">&#39;is a directory&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">path</span><span class="p">,</span> <span class="s1">&#39;not a directory&#39;</span>
+</pre></div>
+
+
+<p>6.判断给出的路径是否是绝对路径</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">path</span><span class="p">,</span> <span class="s1">&#39;is a absolutly directory&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">path</span><span class="p">,</span> <span class="s1">&#39;not a absolutly directory&#39;</span>
+</pre></div>
+
+
+<p>7.返回一个路径的目录名和文件名</p>
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;D:\hello\json.txt&#39;</span><span class="p">)</span>        <span class="c1">#(&#39;D:\\hello&#39;, &#39;json.txt&#39;) </span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/home/Python/test.py&#39;</span><span class="p">)</span>     <span class="c1">#(&#39;/home/Python&#39;, &#39;test.py&#39;)</span>
+</pre></div>
+
+
+<p>8.获得路径名</p>
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="s1">&#39;D:\hello\json.txt&#39;</span><span class="p">)</span>      <span class="c1">#&#39;D:\\hello&#39;</span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="s1">&#39;/home/Python/test.py&#39;</span><span class="p">)</span>   <span class="c1">#&#39;/home/Python&#39;</span>
+</pre></div>
+
+
+<p>9.获得文件名</p>
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="s1">&#39;D:\hello\json.txt&#39;</span><span class="p">)</span>     <span class="c1">#&#39;json.txt&#39;</span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="s1">&#39;/home/Python/test.py&#39;</span><span class="p">)</span>  <span class="c1">#&#39;test.py&#39;</span>
+</pre></div>
+
+
+<p>10.分离文件扩展名</p>
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="s1">&#39;D:\hello\json.txt&#39;</span><span class="p">)</span>     <span class="c1">#(&#39;D:\\hello\\json&#39;, &#39;.txt&#39;) </span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="s1">&#39;/home/Python/test.py&#39;</span><span class="p">)</span>  <span class="c1">#(&#39;/home/Python/test&#39;, &#39;.py&#39;)</span>
+</pre></div>
+
+
+<p>11.进入目录</p>
+<div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span>
+</pre></div>
+
+
+<p>12.创建目录</p>
+<div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>          <span class="c1">#创建单个目录</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdirs</span><span class="p">(</span><span class="s1">&#39;Python/test&#39;</span><span class="p">)</span>  <span class="c1">#创建多级目录</span>
+</pre></div>
+
+
+<h3 id="_3">文件操作</h3>
+<p>1.复制文件（目录）</p>
+<div class="highlight"><pre><span></span><span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="s1">&#39;old&#39;</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">)</span>      <span class="c1">#old和new都只能是文件</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s1">&#39;old&#39;</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">)</span>          <span class="c1">#old只能是文件夹，new可以是文件也可以是目标目录</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="s1">&#39;olddir&#39;</span><span class="p">,</span><span class="s1">&#39;newdir&#39;</span><span class="p">)</span> <span class="c1">#olddir和newdir只能是目录，且newdir不存在</span>
+</pre></div>
+
+
+<p>2.重命名文件（目录）</p>
+<div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;oldname&#39;</span><span class="p">,</span><span class="s1">&#39;newname&#39;</span><span class="p">)</span>     <span class="c1">#文件或目录都是使用这条命令</span>
+</pre></div>
+
+
+<p>3.移动文件（目录）</p>
+<div class="highlight"><pre><span></span><span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;old&#39;</span><span class="p">,</span><span class="s1">&#39;new&#39;</span><span class="p">)</span>           <span class="c1">#文件或目录都是使用这条命令</span>
+</pre></div>
+
+
+<p>4.删除文件（目录）</p>
+<div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s1">&#39;dir&#39;</span><span class="p">)</span>                    <span class="c1">#只能删除空目录</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s1">&#39;dir&#39;</span><span class="p">)</span>               <span class="c1">#空目录、有内容的目录都可以删</span>
+</pre></div>
+								</div>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	
+
+</div>
+<!--/ container -->
+
+</body>
+</html>
