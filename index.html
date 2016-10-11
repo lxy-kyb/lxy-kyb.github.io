@@ -200,25 +200,88 @@
 	
 </style>
 
-<style>
+<style>temperature
 hr{
 	margin-bottom:5px;
 	margin-top:5px;
 }
 </style>
-
+<script src="static/js/hmac-sha1.js"></script>
+<script src="static/js/enc-base64.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {		
+    $(document).ready(function() {
+	
+		String.format = function() {
+			if (arguments.length == 0)
+				return null;
+			var str = arguments[0];
+			for ( var i = 1; i < arguments.length; i++) {
+				var re = new RegExp('\\{' + (i - 1) + '\\}', 'gm');
+				str = str.replace(re, arguments[i]);
+			}
+			return str;
+		};
+	
+		function surl(type = 0) {
+			var timestamp = Math.floor($.now()/1000) - 100;
+			var uid = "ts=" + timestamp + "&uid=U5218EB65C"
+			var key = "q5kaxstpq8t0nqfr"
+			var hash = CryptoJS.HmacSHA1(uid, key);
+			var base64 = CryptoJS.enc.Base64.stringify(hash);
+			var url
+			if (type == 1) {
+				url = "https://api.thinkpage.cn/v3/weather/daily.json?location=beijing&language=zh-Hans&unit=c&start=0&days=3&" + uid + "&sig=" + base64;
+			}			
+			else {
+				url = "https://api.thinkpage.cn/v3/weather/now.json?location=beijing&" + uid + "&sig=" + base64;
+			}
+			return url
+		}
+		
+		function render_weather(dailyweather) {
+			for(var i = 0; i < 3; i++) {
+				$("#current_s_" + i).html(dailyweather.temperature+"&deg");
+			}			
+		}
+		
+		function render_forecast(dailyweather) {
+			for(var index in dailyweather)
+			{
+				var weather = "<span>{0}</span><span>{1}&deg;/{2}&deg;</span><span>{3}</span>";
+				var weatherHTML = String.format(weather, dailyweather[index].text_day, dailyweather[index].high,dailyweather[index].low, dailyweather[index].date); 
+				$("#current" + index).html(weatherHTML);
+				$("#current_" + index).attr("class","icon-weather icon-weather-" + dailyweather[index].code_day);
+				$("#forecast_i_" + index).attr("class", "icon-weather icon-weather-" + dailyweather[index].code_day);
+				$("#forecast_s_" + index).html(dailyweather[index].high + "&deg/"+ dailyweather[index].low +"&deg")
+			}
+		}
+		
 		$.ajax({
              type: "get",
              async: false,
-             url: "https://api.thinkpage.cn/v3/weather/now.json?location=beijing&ts=1476086261&ttl=30&uid=U5218EB65C&sig=SYugy3Hx5m7cR2KcK9KfzMcHqtQ=",
+             url: surl(1),
              dataType: "jsonp",
              jsonp: "callback",
-             jsonpCallback:"weather",
+             jsonpCallback:"forecastCallback",
              success: function(json){
-				alert('fails');
-				$("p").html(JSON.stringify(json));
+				var dailyweather = json.results[0].daily;		
+				render_forecast(dailyweather);
+             },
+             error: function(){
+                 alert('fail');
+             }
+         });
+		 
+		 $.ajax({
+             type: "get",
+             async: false,
+             url: surl(),
+             dataType: "jsonp",
+             jsonp: "callback",
+             jsonpCallback:"weatherCallback",
+             success: function(json){				
+				var dailyweather = json.results[0].now;
+				render_weather(dailyweather);
              },
              error: function(){
                  alert('fail');
@@ -277,16 +340,16 @@ hr{
 						<strong>北京</strong>
 					</div>
 					<div class="weather-highlighted">
-						<div class="weather-item clearfix su"><i class="icon-weather icon-weather-1"></i><div class="inner"><strong>31&deg;</strong><span>Mostly Sunny</span><span>31&deg;/18&deg;</span></div></div>
-						<div class="weather-item clearfix mo"><i class="icon-weather icon-weather-2"></i><div class="inner"><strong>20&deg;</strong><span>Rain</span><span>20&deg;/11&deg;</span></div></div>
-						<div class="weather-item active clearfix tu"><i class="icon-weather icon-weather-3"></i><div class="inner"><strong>27&deg;</strong><span>Partly Cloudy</span><span>27&deg;/15&deg;</span><span>2016-10-15</span></div></div>
+						<div  class="weather-item active clearfix forecast_0"><i id="current_0" class="icon-weather icon-weather-99"></i><div class="inner"><strong id="current_s_0">N/A</strong><p id="current0"></p></div></div>
+						<div class="weather-item clearfix forecast_1"><i id="current_1" class="icon-weather icon-weather-99"></i><div class="inner"><strong id="current_s_1">N/A</strong><p id="current1"></p></div></div>
+						<div class="weather-item clearfix forecast_2"><i id="current_2" class="icon-weather icon-weather-99"></i><div class="inner"><strong id="current_s_2">N/A</strong><p id="current2"></p></div></div>
 					</div>    	
 					<div class="weather-location clearfix">
 					</div>
 					<ul class="weather-forecast clearfix">
-						<li><a id="su"><strong>su</strong><span><i class="icon-weather icon-weather-1"></i></span><span>31&deg;</span></a></li>
-						<li><a id="mo"><strong>mo</strong><span><i class="icon-weather icon-weather-2"></i></span><span>20&deg;</span></a></li>
-						<li><a id="tu"><strong>tu</strong><span><i class="icon-weather icon-weather-3"></i></span><span>27&deg;</span></a></li>
+						<li><a id="forecast_0"><strong>今天</strong><span><i id="forecast_i_0" class="icon-weather icon-weather-99"></i></span><span id="forecast_s_0">N/A</span></a></li>
+						<li><a id="forecast_1"><strong>明天</strong><span><i id="forecast_i_1" class="icon-weather icon-weather-99"></i></span><span id="forecast_s_1">N/A</span></a></li>
+						<li><a id="forecast_2"><strong>后天</strong><span><i id="forecast_i_2" class="icon-weather icon-weather-99"></i></span><span id="forecast_s_2">N/A</span></a></li>
 					</ul>
 				</div>
                     <!--/ Widget Weather -->
@@ -380,8 +443,7 @@ hr{
 		</div>
 		<!--/ row -->
 		
-		<div class="row" id="weather">
-			<p id="p"></p>
+		<div id="p">
 		</div>
 		
 </div>
