@@ -17,20 +17,19 @@ Path_Out_Pages = 'Pages/'
 Index_DAT = 'index.dat'
 Index_Articles = [];
 dict_Articles = {}
-dict_Tags_Index = []
 list_MD_FILES = []
 
 def InitGlobal():
-    global Index_Articles, dict_Articles, dict_Tags_Index, list_MD_FILES,maxcap,maxp
+    global Index_Articles, dict_Articles, list_MD_FILES,maxcap,maxp
     Index_Articles = []
-    dict_Articles = []
-    dict_Tags_Index = []
+    dict_Articles = {}
     list_MD_FILES = []
     maxcap = 17
 
 def clean():
     if os.path.exists(Path_Out_Articles):
         shutil.rmtree(Path_Out_Articles)
+    InitGlobal()
 
 def load_md_files(folder):
     global list_MD_FILES
@@ -39,17 +38,35 @@ def load_md_files(folder):
             if os.path.splitext(f)[1].lower() == '.md':
                 list_MD_FILES.append(os.path.join(root,f)) 
 
+def load_md_Index():
+    global dict_Articles
+    with codecs.open('index.json') as file:
+        jsonCode = file.read()    
+    dict_Articles = json.loads(jsonCode)
+				
 def scan_md():
     global Index_Articles, list_MD_FILES
-    for file in list_MD_FILES:
-        file_base_name = os.path.splitext(os.path.basename(file))[0]
-        Index_Articles.append({'index':file_base_name, 'filepath':file})
+    for mdfile in list_MD_FILES:
+        file_base_name = os.path.splitext(os.path.basename(mdfile))[0]
+        Index_Articles.append({'index':file_base_name, 'filepath':mdfile})
 
+def check_need_render(article):
+    global dict_Articles
+    if article['index'] not in dict_Articles.keys():
+        return True    
+    last_modify_date = parse_time(os.path.getmtime(article['filepath']))
+    index_modify_date = dict_Articles[article['index']].get('modify_date')
+    if last_modify_date == index_modify_date:
+        return False
+    else:
+        return True	
+		
 def gen_md_html():
     global dict_Articles
     for article in Index_Articles:
-       html = render_html(article)
-       save_html(dict_Articles[article['index']].get('savepth'), html)
+	    if check_need_render(article):
+	        html = render_html(article)
+	        save_html(dict_Articles[article['index']].get('savepath'), html)
 
 def render_pages_html(num):
     global maxp, maxcap
@@ -111,8 +128,9 @@ def render_pages_html(num):
     html = template.render(Sindex = Sindex, current = num,Eindex = Eindex,PP = prepage, NP = nextpage, Content = currentdata)
     return html
 
-def render_html(file):
-    with codecs.open(file['filepath'], 'r', 'utf-8') as mdfile:
+def render_html(article):
+    print article
+    with codecs.open(article['filepath'], 'r', 'utf-8') as mdfile:
         mdtxt = mdfile.read()
         md = Markdown(
             extensions=[
@@ -129,40 +147,36 @@ def render_html(file):
         meta = md.Meta if hasattr(md, "Meta") else {}
         toc = md.toc if hasattr(md, "toc") else ""
         meta = md.Meta if hasattr(md, 'Meta') else {}
-        create_index(file, meta)
-
+        create_index(article, meta)
         template = env.get_template("article_base.html")
         html = template.render(
-            titlename = dict_Articles[file['index']].get("title"),
+            titlename = dict_Articles[article['index']].get("title"),
             txtcontent = md_html
             )
         return html
 
-def create_index(file, meta):    
+def create_index(article, meta):    
     title = meta.get('title',[''])[0]
     if title == "":
-        title = file['index']
-    publish_dates = meta.get('publish_date', [])
-    if len(publish_dates) == 0:
-        publish_date = parse_time(os.path.getctime(file['filepath']))
-    else:
-        publish_date = publish_dates[0]
-    summary = meta.get('summary', [u''])[0]
-    dict_Articles[file['index']] = {
-        'title': title,
-        'datetime' : publish_date,
-        'summary' : summary,
-        'filepath' : file['filepath'],
-        'url': str.format('/Articles/{0}.html',file['index']),
-        'savepth' : str.format('Articles/{0}.html',file['index']),
-        "tags": meta.get("tags", [])
+        title = article['index']
+    publish_date = parse_time(os.path.getctime(article['filepath']))
+    modify_date = parse_time(os.path.getmtime(article['filepath']))
+    summary = meta.get('summary', [''])[0]
+    dict_Articles[article['index']] = {
+        'title'        : title,
+        'publish_date' : publish_date,
+		'modify_date'  : modify_date,
+        'summary'      : summary,
+        'filepath'     : article['filepath'],
+        'url'          : str.format('/Articles/{0}.html',article['index']),
+        'savepath'     : str.format('Articles/{0}.html',article['index']),
+        "tags"         : meta.get("tags", [])
         }
  
 def parse_time(timestamp, pattern="%Y-%m-%d %H:%M:%S"):
     return datetime.fromtimestamp(timestamp).strftime(pattern)           
 
-def save_html(out_path, html):
-    print out_path
+def save_html(out_path, html):    
     base_folder = os.path.dirname(out_path)
     if not os.path.exists(base_folder) and base_folder != "":
         os.makedirs(base_folder)
@@ -188,6 +202,7 @@ def gen_html_index():
 
 if __name__ == '__main__':
     clean()
+    load_md_Index()
     load_md_files(Path_md)
     scan_md()
     gen_md_html()

@@ -31,7 +31,7 @@ fp = open("test.txt",w)     #直接打开一个文件，如果文件不存在则
 1.得到当前工作目录，即当前Python脚本工作的路径
 ```Python
 currentpath = os.getcwd()
-```
+``` 
 
 2.返回指定目录下的所有文件和目录名
 ```Python
