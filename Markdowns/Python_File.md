@@ -7,8 +7,8 @@ tags: Python
 ### 创建文件
 ```Python
 import os
-os.mknod("test.txt")        #创建空文件
-fp = open("test.txt",w)     #直接打开一个文件，如果文件不存在则创建文件
+os.mknod('test.txt')        #创建空文件
+fp = open('test.txt','w')     #直接打开一个文件，如果文件不存在则创建文件
 ```
 
 ### open的模式
