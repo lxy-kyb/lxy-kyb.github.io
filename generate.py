@@ -33,10 +33,12 @@ def clean():
 
 def load_md_files(folder):
     global list_MD_FILES
-    for root, dirs, files in os.walk(folder):
+    for root, dirs, files in os.walk(folder):		
         for f in files:
             if os.path.splitext(f)[1].lower() == '.md':
                 list_MD_FILES.append(os.path.join(root,f)) 
+    list_MD_FILES = sorted(list_MD_FILES, key = lambda x:parse_time(os.path.getmtime(x)), reverse = True)
+    #print list_MD_FILES
 
 def load_md_Index():
     global dict_Articles
@@ -186,7 +188,7 @@ def save_html(out_path, html):
         f.write(html)
 
 def dump_index():
-    global maxp
+    global maxp, dict_Articles
     jsoncode = json.dumps(dict_Articles);
     with codecs.open('index.json', 'w+') as f:
         f.write(jsoncode)    
