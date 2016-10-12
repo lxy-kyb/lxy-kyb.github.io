@@ -40,6 +40,8 @@ def load_md_files(folder):
 
 def load_md_Index():
     global dict_Articles
+    if not os.path.exists('index.json'):
+		return
     with codecs.open('index.json') as file:
         jsonCode = file.read()    
     dict_Articles = json.loads(jsonCode)
@@ -201,7 +203,7 @@ def gen_html_index():
     save_html('index.html',html)    
 
 if __name__ == '__main__':
-    clean()
+    InitGlobal()
     load_md_Index()
     load_md_files(Path_md)
     scan_md()
