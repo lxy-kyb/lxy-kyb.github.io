@@ -21,31 +21,12 @@
     });
     //添加点标记，并使用自己的icon
 	
-    var Aircraft = new AMap.Marker({
-        map: map,
-		position: [116.405467, 39.907761],
-        icon: new AMap.Icon({
-            image: "http://www.iconpng.com/png/email-icons2/junkbox.png"
-        })        
-    });
-
-	var icon = new AMap.Icon({
-            image : "http://www.iconpng.com/png/email-icons2/junkbox.png",
-            //icon可缺省，缺省时为默认的蓝色水滴图标，
-            size : new AMap.Size(24,24)
-    });
-    var marker = new AMap.Marker({
-            icon : icon,//24px*24px
-            position : [116.397428, 39.90923],
-            offset : new AMap.Pixel(-12,-12),
-            map : map
-    });
 	
 	var Aircraft = new AMap.Marker({
         map: map,
 		position: [116.405467, 39.907761],
         icon: new AMap.Icon({
-            image: "Aircraft.png"
+            image: "static/images/3d_180/0.png"
         })        
     });
 	
