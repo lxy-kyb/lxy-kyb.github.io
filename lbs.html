@@ -13,23 +13,11 @@
 <body>
 <div id="container"></div>
 <script type="text/javascript">
-    //初始化地图对象，加载地图
     var map = new AMap.Map("container", {
         resizeEnable: true,
         center: [116.397428, 39.90923],//地图中心点
         zoom: 15 //地图显示的缩放级别
-    });
-    //添加点标记，并使用自己的icon
-	
-	
-	var Aircraft = new AMap.Marker({
-        map: map,
-		position: [116.405467, 39.907761],
-        icon: new AMap.Icon({
-            image: "static/images/3d_180/0.png"
-        })        
-    });
-	
+    });	
 </script>
 </body>
 </html>						
