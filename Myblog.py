@@ -16,6 +16,10 @@ def user():
 def Articles(page):
     return send_from_directory('Articles', page)
 
+@app.route('/map')
+def Map():
+    return render_template('lbs.html')
+
 @app.route('/Pages/<current>')
 def userIndex(current):
     global maxp, maxcap
