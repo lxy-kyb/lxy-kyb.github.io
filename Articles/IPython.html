@@ -1,0 +1,137 @@
+﻿﻿<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="ThemeFuse">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>
+IPython入门
+</title>
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="../static/style.css">
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../static/css/default.css">
+
+
+
+
+
+<style>
+hr{
+	margin-bottom:5px;
+	margin-top:5px;
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+<div class="container container-wide">
+
+	<!-- content -->
+	<div class="content " role="main">
+		<!-- row -->
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Website Menu -->
+				<div id="topmenu">
+					<ul class="dropdown clearfix boxed">
+						<li class="menu-level-0"><a href="/"><i class="icon-menu icon-menu7"></i><span>首页</span></a> </li>
+						<li class="menu-level-0"><a href="/Pages/1.html"><i class="icon-menu icon-menu6"></i><span>文章</span></a> </li>
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu3"></i><span>标签</span></a> </li>		
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu4"></i><span>关于</span></a></li>
+					</ul>
+				</div>
+				<!--/ Website Menu -->
+			</div>
+		</div>
+		<!--/ row -->	
+
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Simple Message Field -->
+				<div class="comment-list styled clearfix">
+					<ol>						
+						<li class = "comment">
+							<div class="comment-body boxed ">
+								<div class="comment-noxtext">
+								<h1 id="ipython-shell">IPython: 一个交互式shell工具</h1>
+<h3 id="_1">支持功能</h3>
+<ul>
+<li>Tab键自动补全</li>
+<li>历史记录存档</li>
+<li>行内编辑</li>
+<li>使用%run可以调用外部Python脚本</li>
+<li>支持pylab模式</li>
+<li>Python代码调试和性能分析</li>
+</ul>
+<h3 id="pylab">pylab模式</h3>
+<p>在pylab模式下，IPython将自动导入Scipy，Numpy和Matplotlib模块。</p>
+<blockquote>
+<p>$ ipython --pylab <br /> 
+Python 2.7.2 (default, Jun 20 2012, 16:23:33)<br />
+Type "copyright", "credits" or "license" for more information.<br />
+<br />
+IPython 0.14.dev -- An enhanced Interactive Python.<br />
+! -&gt; Introduction and overview of IPython's features.<br />
+%quickref -&gt; Quick reference.<br />
+help -&gt; Python's own help system.<br />
+objec! -&gt; Details about 'object', use 'object??' for extra details.<br />
+<br />
+Welcome to pylab, a matplotlib-based Python environment [backend: MacOSX].<br />
+For more information, type 'help(pylab)'.<br />
+In [1]: quit()<br /></p>
+</blockquote>
+<h3 id="ipython">IPython 魔术命令</h3>
+<blockquote>
+<p>%quickref 显示IPython的快速参考<br />
+%magic 显示所有魔术命令的详细文档<br />
+%debug 从最新的异常跟踪的底部进入交互式调试器<br />
+%hist 打印命令的输入（可选输出）历史<br />
+%pdb 在异常发生后自动进入调试器<br />
+%paste 执行剪贴板中的Python代码<br />
+%cpaste 打开一个特殊提示符以便手工粘贴待执行的Python代码<br />
+%reset 删除interactive命名空间中的全部变量/名称<br />
+%page OBJECT 通过分页器打印输出OBJECT<br />
+%run script.py 在IPython中执行一个Python脚本文件<br />
+%prun statement 通过cProfile执行statement，并打印分析器的输出结果<br />
+%time statement 报告statement的执行时间<br />
+%timeit statement 多次执行statement以计算系综平均执行时间。对那些执行时  间非常小的代码很有用<br />
+%who、%who_ls、%whos 显示interactive命名空间中定义的变量，信息级别/冗余度可变<br />
+%xdel variable 删除variable，并尝试清除其在IPython中的对象上的一切引用<br /></p>
+</blockquote>
+<h3 id="ipython_1">IPython 系统交互命令</h3>
+<blockquote>
+<p>%alias ll ls -l 将ll作为ls -l的别名暂时保存<br />
+%!cmd 在系统shell中执行cmd<br />
+%output  = !cmd args 执行cmd，并将stdout存放在output中<br />
+%alias alias_name cmd 为系统shell命令定义别名<br />
+%bookmark 使用IPython的目录书签系统<br />
+%cd directory 将系统工作目录更改为directory<br />
+%pwd 返回系统的当前工作目录<br />
+%pushd directory 将目前目录入栈，并转向目标目录<br />
+%popd 弹出栈顶目录，并转向该目录<br />
+%dirs 返回一个含有当前目录栈的列表<br />
+%dhist 打印目录访问历史<br />
+%env 以dict形式返回系统环境变量<br /></p>
+</blockquote>
+								</div>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	
+
+</div>
+<!--/ container -->
+
+</body>
+</html>
