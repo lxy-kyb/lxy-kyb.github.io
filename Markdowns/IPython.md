@@ -1,5 +1,5 @@
 title: IPython入门
-summary: IPython入门只是
+summary: IPython入门知识
 publish_date: 2017-02-21
 tags: python
 
