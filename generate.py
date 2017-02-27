@@ -129,7 +129,7 @@ def render_pages_html(num):
     currentdata = []
     if num <= maxp:
         for lst in range((num-1)*10, min((num-1)*10 + 10, len(dict_Articles_list))):            
-            currentdata.append(dict_Articles_list[lst][0]);   
+            currentdata.append(dict_Articles_list[lst][1]);   
     # print currentdata
     template = env.get_template("articlelist_tem.html")
     html = template.render(Sindex = Sindex, current = num,Eindex = Eindex,PP = prepage, NP = nextpage, Content = currentdata)
