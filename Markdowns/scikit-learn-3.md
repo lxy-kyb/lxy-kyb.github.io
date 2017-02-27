@@ -59,7 +59,7 @@ plt.scatter(X,y)
 plt.show()
 ```
 ***
-![Figure_1](../static/images/machine-learning/2_3_3.png)  
+![figure_1](../static/images/machine-learning/2_3_1.png)  
 
 可以看到用函数生成的`Linear Regression`用的数据。`noise`越大的话点就会越离散。
 ```python
@@ -68,6 +68,6 @@ plt.scatter(X,y)
 plt.show()
 ```
 ***
-![Figure_2](../static/images/machine-learning/2_3_4.png)  
+![figure_2](../static/images/machine-learning/2_3_4.png)  
 
 #### [本文全部代码](https://github.com/lxy-kyb/scikit-learn-tutorial/blob/master/datasets_try.py)
