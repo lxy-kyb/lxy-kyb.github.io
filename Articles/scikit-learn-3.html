@@ -1,0 +1,147 @@
+﻿﻿<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="ThemeFuse">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>
+scikit-learn（三） sklearn的数据库
+</title>
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="../static/style.css">
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../static/css/default.css">
+
+
+
+
+
+<style>
+hr{
+	margin-bottom:5px;
+	margin-top:5px;
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+<div class="container container-wide">
+
+	<!-- content -->
+	<div class="content " role="main">
+		<!-- row -->
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Website Menu -->
+				<div id="topmenu">
+					<ul class="dropdown clearfix boxed">
+						<li class="menu-level-0"><a href="/"><i class="icon-menu icon-menu7"></i><span>首页</span></a> </li>
+						<li class="menu-level-0"><a href="/Pages/1.html"><i class="icon-menu icon-menu6"></i><span>文章</span></a> </li>
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu3"></i><span>标签</span></a> </li>		
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu4"></i><span>关于</span></a></li>
+					</ul>
+				</div>
+				<!--/ Website Menu -->
+			</div>
+		</div>
+		<!--/ row -->	
+
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Simple Message Field -->
+				<div class="comment-list styled clearfix">
+					<ol>						
+						<li class = "comment">
+							<div class="comment-body boxed ">
+								<div class="comment-noxtext">
+								<p><code>Sklearn</code>中有许多且游泳的<code>data set</code>，可以用来学习算法模型<br />
+eg: boston放假，糖尿病，数字，Iris花。
+也可以生成虚拟的数据，例如可以生成用来训练线性回归模型的数据等。</p>
+<p><img alt="Samples generator" src="../static/images/machine-learning/2_3_1.png" /></p>
+<p>例如，点击进入boston房价的数据，可以看到<code>sample</code>的总数，属性，以及<code>label</code>等信息。
+<img alt="load_boston" src="../static/images/machine-learning/2_3_2.png" /></p>
+<h2 id="1">1.导入模块</h2>
+<p>导入<code>datasets</code>包，本文以<code>Linear Regression</code>为例。</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+
+
+<hr />
+<h2 id="2-">2.导入数据 - 训练模型</h2>
+<p>用<code>dataset.load_boston()</code>的形式加载数据，并给<code>X</code>和<code>y</code>赋值，这种形式在<code>Sklearn</code>中都是高度统一的。</p>
+<div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">loaded_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">()</span>
+<span class="n">data_X</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="o">.</span><span class="n">data</span>
+<span class="n">data_y</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+
+
+<hr />
+<p>可以直接用默认值来简历<code>model</code>，也可以自己改变参数使模型更好。然后用<code>training data</code>去训练模型。</p>
+<div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X</span><span class="p">,</span><span class="n">data_y</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<p>再打印出预测值，这里用X的前4个来预测，同时打印出真实值，可以看出是存在误差的。</p>
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_X</span><span class="p">[:</span><span class="mi">4</span><span class="p">,:])</span>
+<span class="k">print</span> <span class="n">data_y</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+
+
+<hr />
+<blockquote>
+<p>[ 30.00821269  25.0298606   30.5702317   28.60814055]<br />
+[ 24.   21.6  34.7  33.4]</p>
+</blockquote>
+<hr />
+<p>为了提高准确度可以通过尝试不同的model，不同的参数，不同的预处理方法，入门的话可以直接使用默认值。</p>
+<h2 id="3-">3.创建虚拟数据 - 可视化</h2>
+<p>用函数来建立100个<code>samlpe</code>，有一个<code>feature</code>，一个<code>target</code>，这样比较方便可视化。  </p>
+<div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">n_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_targets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">noise</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<p>用<code>scatter</code>的形式来输出结果。  </p>
+<div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<p><img alt="Figure_1" src="../static/images/machine-learning/Figure_1.png" />
+可以看到用函数生成的<code>Linear Regression</code>用的数据。<code>noise</code>越大的话点就会越离散。</p>
+<div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">n_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_targets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">noise</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<p><img alt="Figure_2" src="../static/images/machine-learning/Figure_2.png" /></p>
+<h4 id="_1"><a href="https://github.com/lxy-kyb/scikit-learn-tutorial/blob/master/datasets_try.py">本文全部代码</a></h4>
+								</div>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	
+
+</div>
+<!--/ container -->
+
+</body>
+</html>
