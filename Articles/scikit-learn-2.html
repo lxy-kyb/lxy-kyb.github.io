@@ -88,7 +88,7 @@ hr{
 
 <p>观察一下数据集，<code>iris_X</code>有四个属性，<code>iris_Y</code>有0，1，2三类</p>
 <div class="highlight"><pre><span></span><span class="k">print</span> <span class="n">iris_X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:]</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">iris_Y</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">iris_Y</span>
 </pre></div>
 
 
@@ -106,7 +106,7 @@ hr{
  X_train, X_test, y_train, y_test = train_test_split(
      iris_X,iris_Y,test_size = 0.3)</code></p>
 <p>输出分开后的数据集，顺序也被打乱，更有利于学习模型</p>
-<div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">((</span><span class="n">y_test</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="n">y_test</span>
 </pre></div>
 
 
@@ -115,7 +115,7 @@ hr{
  0 1 0 0 1 0 0 0 1 0 0 1 2 2 0 2 2 0 2 0 1 2 1 1 0 0 2 1 1 0 0 0 1 1 1 1 2
  2 2 2 1 1 2 1 2 0 2 0 2 2 1 2 0 1 2 1 1 1 1 2 2 1 2 0 0 2 0 2]</p>
 </blockquote>
-<p>### 定义模型 - 训练模型 - 预测</p>
+<p>### 定义模型、训练模型、预测</p>
 <p>定义模块方式为<code>KNeighborsClassifier()</code>, 用<code>fit</code>来训练<code>training data</code>，这一步就
  完成了训练的所有步骤，后面的 <code>knn</code>就已经是训练好的模型，就可以直接用来<code>predict</code>测试集
  的数据。
