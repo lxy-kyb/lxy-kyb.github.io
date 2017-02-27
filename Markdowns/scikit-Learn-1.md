@@ -2,6 +2,8 @@ title: scikit-learn（一）  如何选择机器学习方法
 summary: 如何选择机器学习方法
 tags: Machine-Learning
 
+# 如何选择机器学习方法
+
 Sklearn 官方提供了一个流程图， 蓝色圆圈是判断条件， 绿色方框是可以选择的算法。
 
 ![Sklearn-graph](../static/images/img/ml_map.png)

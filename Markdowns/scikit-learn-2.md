@@ -2,6 +2,8 @@ title: scikit-learn（二） 通用学习模式
 summary: scikit-learn通用的学习模式
 tags: Machine-Learning
 
+# scikit-learn通用的学习模式
+
 Sklearn 把所有机器学习的模式整合统一起来了，学会一个模式就可以通吃其他不同类型的学习模式。
 
 今天 用 `KNN classifier` 作为样例

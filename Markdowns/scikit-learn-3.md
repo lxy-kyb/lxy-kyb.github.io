@@ -2,6 +2,8 @@ title: scikit-learn（三） sklearn的数据库
 summary: 介绍sklearn的数据集
 tags: Machine-Learning
 
+# sklearn的数据集
+
 `Sklearn`中有许多且游泳的`data set`，可以用来学习算法模型  
 eg: boston放假，糖尿病，数字，Iris花。
 也可以生成虚拟的数据，例如可以生成用来训练线性回归模型的数据等。
