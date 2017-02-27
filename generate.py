@@ -37,7 +37,7 @@ def load_md_files(folder):
         for f in files:
             if os.path.splitext(f)[1].lower() == '.md':
                 list_MD_FILES.append(os.path.join(root,f)) 
-    list_MD_FILES = sorted(list_MD_FILES, key = lambda x:parse_time(os.path.getmtime(x)), reverse = True)
+    list_MD_FILES = sorted(list_MD_FILES, key = lambda x:parse_time(os.path.getctime(x)), reverse = True)
     #print list_MD_FILES
 
 def load_md_Index():
