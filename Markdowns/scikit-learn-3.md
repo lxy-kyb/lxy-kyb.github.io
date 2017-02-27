@@ -59,7 +59,7 @@ plt.scatter(X,y)
 plt.show()
 ```
 ***
-![figure_1](../static/images/machine-learning/2_3_1.png)  
+![figure_1](../static/images/machine-learning/2_3_3.png)  
 
 可以看到用函数生成的`Linear Regression`用的数据。`noise`越大的话点就会越离散。
 ```python
