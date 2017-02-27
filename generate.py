@@ -15,8 +15,9 @@ Path_md = 'Markdowns/'
 Path_Out_Articles = 'Articles/'
 Path_Out_Pages = 'Pages/'
 Index_DAT = 'index.dat'
-Index_Articles = [];
+Index_Articles = []
 dict_Articles = {}
+dict_Articles_list = []
 list_MD_FILES = []
 
 def InitGlobal():
@@ -66,17 +67,18 @@ def check_need_render(article):
         return True	
 		
 def gen_md_html():
-    global dict_Articles
+    global dict_Articles, dict_Articles_list
     for article in Index_Articles:
 	    if check_need_render(article):
 	        html = render_html(article)
 	        save_html(dict_Articles[article['index']].get('savepath'), html)
+    dict_Articles_list = sorted(dict_Articles.items(), key = lambda x:x[1]['publish_date'])
 
 def render_pages_html(num):
     global maxp, maxcap
-    global dict_Articles
-    Sindex = [];
-    Eindex = [];
+    global dict_Articles, dict_Articles_list
+    Sindex = []
+    Eindex = []
     urlstr = '/Pages/{0}.html'
     if maxp <= 17:    
         for i in range(1,num):
@@ -126,8 +128,9 @@ def render_pages_html(num):
     nextpage= str.format(urlstr, num if num == maxp else num + 1)
     currentdata = []
     if num <= maxp:
-        for lst in range((num-1)*10, min((num-1)*10 + 10, len(dict_Articles))):            
-            currentdata.append(dict_Articles.items()[lst][1]);   
+        for lst in range((num-1)*10, min((num-1)*10 + 10, len(dict_Articles_list))):            
+            currentdata.append(dict_Articles_list[lst][0]);   
+    # print currentdata
     template = env.get_template("articlelist_tem.html")
     html = template.render(Sindex = Sindex, current = num,Eindex = Eindex,PP = prepage, NP = nextpage, Content = currentdata)
     return html
