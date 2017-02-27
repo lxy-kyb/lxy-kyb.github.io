@@ -1,0 +1,149 @@
+﻿﻿<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="ThemeFuse">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>
+scikit-learn（二） 通用学习模式
+</title>
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="../static/style.css">
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../static/css/default.css">
+
+
+
+
+
+<style>
+hr{
+	margin-bottom:5px;
+	margin-top:5px;
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+<div class="container container-wide">
+
+	<!-- content -->
+	<div class="content " role="main">
+		<!-- row -->
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Website Menu -->
+				<div id="topmenu">
+					<ul class="dropdown clearfix boxed">
+						<li class="menu-level-0"><a href="/"><i class="icon-menu icon-menu7"></i><span>首页</span></a> </li>
+						<li class="menu-level-0"><a href="/Pages/1.html"><i class="icon-menu icon-menu6"></i><span>文章</span></a> </li>
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu3"></i><span>标签</span></a> </li>		
+						<li class="menu-level-0"><a href="#"><i class="icon-menu icon-menu4"></i><span>关于</span></a></li>
+					</ul>
+				</div>
+				<!--/ Website Menu -->
+			</div>
+		</div>
+		<!--/ row -->	
+
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Simple Message Field -->
+				<div class="comment-list styled clearfix">
+					<ol>						
+						<li class = "comment">
+							<div class="comment-body boxed ">
+								<div class="comment-noxtext">
+								<p>Sklearn 把所有机器学习的模式整合统一起来了，学会一个模式就可以通吃其他不同类型的学习模式。</p>
+<p>今天 用 <code>KNN classifier</code> 作为样例</p>
+<p>Sklearn 包含了许多数据库可以用来练习。以Iris的数据为例，这种花有四个属性，花瓣的长宽，茎的长宽，根据这些属性把花分为三类。</p>
+<p>接下来，我们要用分类器取把花按类型分开。</p>
+<h2 id="_1">使用模型的步骤</h2>
+<ol>
+<li>导入模块</li>
+<li>创建数据</li>
+<li>建立模型 - 训练 - 预测</li>
+</ol>
+<h3 id="_2">导入模块</h3>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+</pre></div>
+
+
+<h3 id="_3">创建数据</h3>
+<p>加载<code>iris</code>的数据，把属性存在<code>iris_X</code>，类别标签存储在<code>iris_Y</code></p>
+<div class="highlight"><pre><span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">iris_Y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+
+
+<p>观察一下数据集，<code>iris_X</code>有四个属性，<code>iris_Y</code>有0，1，2三类</p>
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="n">iris_X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:]</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">iris_Y</span><span class="p">)</span>
+</pre></div>
+
+
+<blockquote>
+<p>[[ 5.1  3.5  1.4  0.2]<br />
+ [ 4.9  3.   1.4  0.2]]<br />
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2
+ 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+ 2 2]</p>
+</blockquote>
+<p>把数据集分为训练集和测试集，其中<code>test_size = 0.3</code>, 即测试集占总数据的30%
+ <code>python
+ X_train, X_test, y_train, y_test = train_test_split(
+     iris_X,iris_Y,test_size = 0.3)</code></p>
+<p>输出分开后的数据集，顺序也被打乱，更有利于学习模型</p>
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">((</span><span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+
+
+<blockquote>
+<p>[1 2 2 1 1 1 0 0 0 2 2 1 2 1 2 0 1 0 2 0 0 1 0 0 0 2 0 1 2 1 0 2 0 2 0 2 1
+ 0 1 0 0 1 0 0 0 1 0 0 1 2 2 0 2 2 0 2 0 1 2 1 1 0 0 2 1 1 0 0 0 1 1 1 1 2
+ 2 2 2 1 1 2 1 2 0 2 0 2 2 1 2 0 1 2 1 1 1 1 2 2 1 2 0 0 2 0 2]</p>
+</blockquote>
+<p>### 定义模型 - 训练模型 - 预测
+ 定义模块方式为<code>KNeighborsClassifier()</code>, 用<code>fit</code>来训练<code>training data</code>，这一步就
+ 完成了训练的所有步骤，后面的 <code>knn</code>就已经是训练好的模型，就可以直接用来<code>predict</code>测试集
+ 的数据。
+ <code>python
+knn = KNeighborsClassifier()
+knn.fit(X_train,y_train)</code>
+ 对比用模型预测的值与真实的值，可以看出大概模拟出了数据，有些许的误差
+ <code>python
+ print knn.predict(X_test)
+ print y_test</code></p>
+<blockquote>
+<p>[0 1 1 1 2 2 0 1 0 0 1 0 0 2 2 2 2 0 2 1 2 0 1 1 1 0 2 2 2 1 1 0 0 0 2 2 2
+ 1 0 2 0 2 0 1 1]<br />
+[0 1 1 1 1 2 0 1 0 0 1 0 0 2 2 2 1 0 2 1 2 0 1 1 1 0 2 2 2 1 1 0 0 0 2 2 2
+ 1 0 2 0 2 0 1 1]</p>
+</blockquote>
+<p><a href="https://github.com/lxy-kyb/scikit-learn-tutorial/blob/master/knn_try.py">查看本文全部代码</a></p>
+								</div>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	
+
+</div>
+<!--/ container -->
+
+</body>
+</html>
