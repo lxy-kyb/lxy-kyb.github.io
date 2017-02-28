@@ -1,4 +1,4 @@
-title: scikit-learn（七） 交叉验证 Cross-validation（7）
+title: scikit-learn（七） 交叉验证 Cross-validation（2）
 summary: sklearn 交叉验证
 tags: Machine-Learning
 
