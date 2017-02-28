@@ -4,7 +4,7 @@ tags: Machine-Learning
 
 # 交叉验证 Cross-validation（2）
 ***
-通过`sklearn.learning_curve`中的`learning curve`可以很直观的看出我们的model学习的进度，
+通过`sklearn.learning_curve`中的`learning curve`和`validation curve`可以很直观的看出我们的model学习的进度，
 从而对比返现有没有overfitting的问你。然后我可以对model进行调整来克服过拟合问题。
 
 ### 1.学习曲线 learning curve
